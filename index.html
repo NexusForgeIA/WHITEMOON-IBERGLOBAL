@@ -27,8 +27,10 @@ body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--te
 header{background:#fff;border-bottom:1px solid #e2e8f0;padding:18px 0;position:sticky;top:42px;z-index:99;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 .header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-svg{width:48px;height:48px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-svg{height:52px;width:auto}
+.logo-tagline{display:flex;flex-direction:column;line-height:1.1;border-left:2px solid #c0392b;padding-left:10px}
+.logo-tagline-line1,.logo-tagline-line2{font-size:.68rem;color:#64748b;font-weight:500;letter-spacing:.2px}
 .logo-text{font-size:1.4rem;font-weight:800;color:var(--azul);letter-spacing:-.5px}
 .logo-text span{color:var(--rojo)}
 nav ul{display:flex;list-style:none;gap:28px;flex-wrap:wrap}
@@ -128,7 +130,8 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
   .hero p{font-size:1rem}
   .section-title h2{font-size:1.65rem}
   nav ul{gap:14px;font-size:.84rem}
-  .logo-text{font-size:1.1rem}
+  .logo-svg{height:40px}
+  .logo-tagline{display:none}
   .chatbot-callout{display:none}
   .cta-box{padding:40px 24px}
   .cta-box h2{font-size:1.5rem}
@@ -155,14 +158,18 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
   <div class="container">
     <div class="header-inner">
       <a href="#" class="logo">
-        <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="22" fill="#1a365d"/>
-          <path d="M24 8 L34 18 L34 30 L24 40 L14 30 L14 18 Z" fill="#c0392b"/>
-          <circle cx="24" cy="24" r="6" fill="#d4a24a"/>
-          <path d="M14 24 L34 24" stroke="#fff" stroke-width="1.5" stroke-dasharray="2,2"/>
-          <path d="M24 14 L24 34" stroke="#fff" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <svg class="logo-svg" viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg" style="width:auto;height:52px">
+          <!-- Punto/cuadrado rojo de la i -->
+          <rect x="8" y="12" width="16" height="16" fill="#c0392b"/>
+          <!-- Letra "i" cuerpo -->
+          <rect x="8" y="32" width="16" height="34" fill="#c0392b"/>
+          <!-- Resto del texto "berglobal" -->
+          <text x="30" y="60" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800" fill="#1a1a1a" letter-spacing="-1">berglobal</text>
         </svg>
-        <div class="logo-text">IBER<span>GLOBAL</span></div>
+        <div class="logo-tagline">
+          <span class="logo-tagline-line1">Portal para la internacionalización</span>
+          <span class="logo-tagline-line2">de la empresa y la economía</span>
+        </div>
       </a>
       <nav>
         <ul>
@@ -394,12 +401,11 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 <footer>
   <div class="container">
     <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:16px">
-      <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="22" fill="#fff"/>
-        <path d="M24 8 L34 18 L34 30 L24 40 L14 30 L14 18 Z" fill="#c0392b"/>
-        <circle cx="24" cy="24" r="6" fill="#d4a24a"/>
+      <svg width="180" height="50" viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="12" width="16" height="16" fill="#c0392b"/>
+        <rect x="8" y="32" width="16" height="34" fill="#c0392b"/>
+        <text x="30" y="60" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800" fill="#ffffff" letter-spacing="-1">berglobal</text>
       </svg>
-      <div class="logo-text" style="font-size:1.3rem">IBER<span style="color:#d4a24a">GLOBAL</span></div>
     </div>
     <p><strong style="color:#fff">Iberglobal Consultoría de Internacionalización</strong></p>
     <p>Fundada en 2001 · Madrid, España</p>
