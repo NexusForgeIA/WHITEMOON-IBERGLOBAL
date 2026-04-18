@@ -225,6 +225,30 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 .ib-stat strong{display:block;color:var(--azul);font-size:1.1rem;font-weight:800}
 .ib-stat span{color:var(--gris);font-size:.72rem}
 @media(max-width:900px){.campus-grid{grid-template-columns:1fr}}
+
+/* IBERCHINA */
+.iberchina-section{padding:80px 0;background:linear-gradient(135deg,#1a365d,#2c5282)}
+.iberchina-inner{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.iberchina-left h2{font-size:2rem;color:#fff;font-weight:800;margin-bottom:16px;line-height:1.2}
+.iberchina-left p{color:rgba(255,255,255,.85);line-height:1.75;margin-bottom:16px;font-size:.97rem}
+.iberchina-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,162,74,.2);color:var(--dorado);padding:6px 16px;border-radius:20px;font-size:.76rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;border:1px solid rgba(212,162,74,.3)}
+.iberchina-servicios{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.iberchina-servicio{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.07);padding:16px 18px;border-radius:10px;border-left:3px solid var(--dorado)}
+.iberchina-servicio-icon{width:36px;height:36px;background:rgba(212,162,74,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
+.iberchina-servicio-texto h4{color:#fff;font-size:.92rem;font-weight:700;margin-bottom:4px}
+.iberchina-servicio-texto p{color:rgba(255,255,255,.7);font-size:.84rem;line-height:1.5;margin:0}
+.iberchina-right{display:flex;flex-direction:column;gap:20px}
+.iberchina-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.iberchina-stat{background:rgba(255,255,255,.08);border-radius:12px;padding:20px;text-align:center;border:1px solid rgba(255,255,255,.1)}
+.iberchina-stat strong{display:block;font-size:1.8rem;color:var(--dorado);font-weight:800;margin-bottom:4px}
+.iberchina-stat span{color:rgba(255,255,255,.7);font-size:.8rem}
+.iberchina-social{display:flex;gap:12px;flex-wrap:wrap}
+.iberchina-social-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-size:.86rem;font-weight:600;transition:all .2s;border:1px solid rgba(255,255,255,.15)}
+.iberchina-social-btn:hover{background:rgba(255,255,255,.2)}
+.iberchina-libro{background:rgba(255,255,255,.07);border-radius:12px;padding:20px;border:1px solid rgba(212,162,74,.2)}
+.iberchina-libro h4{color:var(--dorado);font-size:.9rem;font-weight:700;margin-bottom:8px}
+.iberchina-libro p{color:rgba(255,255,255,.75);font-size:.84rem;line-height:1.6;margin:0}
+@media(max-width:900px){.iberchina-inner{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -262,6 +286,7 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#mercados">Mercados</a></li>
           <li><a href="#campus">Campus</a></li>
+          <li><a href="#iberchina">Iberchina</a></li>
           <li><a href="#newsletter">Newsletter</a></li>
           <li><a href="https://wa.me/34699727218" target="_blank">Contacto</a></li>
         </ul>
@@ -453,7 +478,7 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
       <p>Especialización en las principales regiones económicas del mundo</p>
     </div>
     <div class="mercados-grid">
-      <div class="mercado-card"><div class="mercado-flag">CN</div><h4>China</h4><p>Referencia a través de Iberchina</p></div>
+      <div class="mercado-card" onclick="document.getElementById('iberchina').scrollIntoView({behavior:'smooth'})" style="cursor:pointer"><div class="mercado-flag">CN</div><h4>China</h4><p>Web especializada <strong>Iberchina</strong> · 2.500 usuarios · Desde 2005</p></div>
       <div class="mercado-card"><div class="mercado-flag">LA</div><h4>Latinoamérica</h4><p>50% de nuestra audiencia</p></div>
       <div class="mercado-card"><div class="mercado-flag">AF</div><h4>África</h4><p>Curso especializado</p></div>
       <div class="mercado-card"><div class="mercado-flag">EU</div><h4>Europa</h4><p>Acuerdos comerciales y UE</p></div>
@@ -511,13 +536,15 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
             </div>
           </div>
           <div class="director-bio">
-            <p>Antiguo Consejero Comercial de la Embajada de España en Beijing, Fanjul tiene una amplia experiencia, de varias décadas, de trabajo con China, tanto en el sector público como en el privado.</p>
-            <p>Fue director de Técnicas Reunidas Internacional y socio-director de ACE-Cooperación de Proyectos. Fue presidente del Comité Empresarial Hispano-Chino. Ha escrito varios libros y numerosos artículos sobre China.</p>
-            <p>Miembro de Cátedra China y del Consejo Científico del Real Instituto Elcano. Profesor Titular de universidad española.</p>
+            <p>Antiguo Consejero Comercial de la Embajada de España en Beijing, con amplia experiencia de varias décadas en China tanto en el sector público como privado. En 1989 fue testigo directo de las manifestaciones estudiantiles de Tiananmen.</p>
+            <p>Fue director de <strong>Técnicas Reunidas Internacional</strong> y socio-director de ACE-Cooperación de Proyectos. Fue presidente del <strong>Comité Empresarial Hispano-Chino</strong>. Autor de tres libros sobre China y numerosos artículos.</p>
+            <p>Miembro del <strong>Consejo Asesor del Real Instituto Elcano</strong>, donde escribe de forma regular. Profesor Titular de universidad española.</p>
             <div class="director-tags">
               <span class="director-tag">🇨🇳 Experto en China</span>
-              <span class="director-tag">Comercio Exterior</span>
+              <span class="director-tag">Técnicas Reunidas</span>
               <span class="director-tag">Real Instituto Elcano</span>
+              <span class="director-tag">3 libros sobre China</span>
+              <span class="director-tag">Testigo Tiananmen 1989</span>
               <span class="director-tag">Profesor Universitario</span>
             </div>
           </div>
@@ -525,12 +552,13 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 
         <!-- Iberglobal info -->
         <div class="iberglobal-info">
-          <h4>🏛️ Sobre Iberglobal</h4>
-          <p>Primera web privada sobre internacionalización en castellano. Sus profesionales cuentan con amplia experiencia en comercio exterior, formación online y el mercado chino. Iberglobal tiene en su grupo la web <strong>Iberchina</strong>, una de las webs sobre China más importantes en lengua castellana.</p>
+          <h4>🏛️ Sobre el Grupo Iberglobal</h4>
+          <p>Fundada en 2001, Iberglobal es la <strong>primera web privada en castellano</strong> sobre internacionalización, con más de 7.000 usuarios registrados. Sus profesionales cuentan con hasta 30 años de experiencia en comercio exterior y mercados internacionales.</p>
+          <p style="margin-top:10px;font-size:.85rem;">El grupo incluye <strong>Iberchina</strong> (fundada en 2005), una de las webs de referencia sobre China en lengua castellana, con 2.500 usuarios y presencia en Twitter (@iberchina) y LinkedIn.</p>
           <div class="iberglobal-stats">
-            <div class="ib-stat"><strong>16+</strong><span>Años en Internet</span></div>
-            <div class="ib-stat"><strong>30+</strong><span>Años experiencia</span></div>
-            <div class="ib-stat"><strong>🇨🇳</strong><span>Iberchina</span></div>
+            <div class="ib-stat"><strong>2001</strong><span>Fundación</span></div>
+            <div class="ib-stat"><strong>7.000+</strong><span>Usuarios</span></div>
+            <div class="ib-stat"><strong>30+</strong><span>Años exp.</span></div>
           </div>
         </div>
       </div>
@@ -658,6 +686,77 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 
   </div>
 </section>
+
+
+<!-- IBERCHINA -->
+<section class="iberchina-section" id="iberchina">
+  <div class="container">
+    <div class="iberchina-inner">
+      <!-- Izquierda -->
+      <div class="iberchina-left">
+        <div class="iberchina-badge">🇨🇳 Grupo Iberglobal</div>
+        <h2>Iberchina · La referencia sobre China en castellano</h2>
+        <p>Creada en 2005 por el grupo Iberglobal en respuesta al creciente interés de sus socios por China, Iberchina se ha convertido en una web de referencia sobre temas chinos, con usuarios en España y países latinoamericanos.</p>
+        <p>Fundada y dirigida por <strong style="color:var(--dorado)">Enrique Fanjul</strong>, ex-Consejero Comercial de la Embajada de España en Beijing y autor de tres libros sobre China.</p>
+
+        <div class="iberchina-servicios">
+          <div class="iberchina-servicio">
+            <div class="iberchina-servicio-icon">📰</div>
+            <div class="iberchina-servicio-texto">
+              <h4>Información y Newsletter</h4>
+              <p>Análisis y reflexión sobre China a través de la web, newsletter y redes sociales especializadas.</p>
+            </div>
+          </div>
+          <div class="iberchina-servicio">
+            <div class="iberchina-servicio-icon">🎓</div>
+            <div class="iberchina-servicio-texto">
+              <h4>Cursos Online</h4>
+              <p>Formación especializada en negocios con China, incluyendo el curso para estudiantes chinos.</p>
+            </div>
+          </div>
+          <div class="iberchina-servicio">
+            <div class="iberchina-servicio-icon">💼</div>
+            <div class="iberchina-servicio-texto">
+              <h4>Consultoría de Negocios</h4>
+              <p>Asesoramiento a empresas españolas interesadas en el mercado chino o en trabajar con empresas chinas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Derecha -->
+      <div class="iberchina-right">
+        <div class="iberchina-stat-grid">
+          <div class="iberchina-stat"><strong>2005</strong><span>Año de fundación</span></div>
+          <div class="iberchina-stat"><strong>2.500+</strong><span>Usuarios registrados</span></div>
+          <div class="iberchina-stat"><strong>LATAM</strong><span>Presencia en América</span></div>
+          <div class="iberchina-stat"><strong>20+</strong><span>Años exp. en China</span></div>
+        </div>
+
+        <div class="iberchina-social">
+          <a href="http://twitter.com/iberchina" target="_blank" class="iberchina-social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            @iberchina
+          </a>
+          <a href="https://www.linkedin.com/groups/4499663" target="_blank" class="iberchina-social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Negocios China
+          </a>
+          <a href="http://www.iberchina.org" target="_blank" class="iberchina-social-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            iberchina.org
+          </a>
+        </div>
+
+        <div class="iberchina-libro">
+          <h4>📚 Memoria de Tiananmen — eBook</h4>
+          <p>Enrique Fanjul era en 1989 Consejero Comercial de la embajada española en Pekín. Testigo directo de las manifestaciones estudiantiles y su trágico desenlace, en este libro analiza los sucesos de la primavera de Pekín.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- FIN IBERCHINA -->
 
 <!-- CTA -->
 <section class="cta-section">
