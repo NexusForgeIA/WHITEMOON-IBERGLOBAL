@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iberglobal — Demo Web con Chatbot IA (WhiteMoon)</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rojo:#c0392b;
+  --rojo-oscuro:#a02820;
+  --rojo-claro:#e74c3c;
+  --azul:#1a365d;
+  --azul-claro:#2c5282;
+  --dorado:#d4a24a;
+  --morado:#7c3aed;
+  --gris:#64748b;
+  --gris-claro:#f1f5f9;
+  --texto:#1e293b;
+}
+body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--texto);line-height:1.65;background:#fff;overflow-x:hidden}
+
+/* BANNER DEMO */
+.demo-banner{background:linear-gradient(135deg,var(--morado),var(--dorado));color:#fff;text-align:center;padding:12px 20px;font-size:.82rem;font-weight:600;position:sticky;top:0;z-index:100;letter-spacing:.3px;box-shadow:0 2px 8px rgba(124,58,237,.2)}
+
+/* HEADER */
+header{background:#fff;border-bottom:1px solid #e2e8f0;padding:18px 0;position:sticky;top:42px;z-index:99;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-svg{width:48px;height:48px}
+.logo-text{font-size:1.4rem;font-weight:800;color:var(--azul);letter-spacing:-.5px}
+.logo-text span{color:var(--rojo)}
+nav ul{display:flex;list-style:none;gap:28px;flex-wrap:wrap}
+nav a{color:var(--texto);text-decoration:none;font-weight:500;font-size:.92rem;transition:color .2s;position:relative}
+nav a:hover{color:var(--rojo)}
+nav a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--rojo);transition:width .3s}
+nav a:hover::after{width:100%}
+
+/* HERO */
+.hero{background:#fff;padding:70px 0 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(192,57,43,.06),transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(26,54,93,.05),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(192,57,43,.08);color:var(--rojo);padding:7px 16px;border-radius:20px;font-size:.82rem;font-weight:600;margin-bottom:22px;border:1px solid rgba(192,57,43,.15)}
+.hero-badge::before{content:'';width:6px;height:6px;background:var(--rojo);border-radius:50%;animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:2.7rem;color:var(--azul);margin-bottom:20px;font-weight:800;line-height:1.15}
+.hero h1 span{color:var(--rojo)}
+.hero p{font-size:1.12rem;color:var(--gris);margin-bottom:30px;max-width:540px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:.94rem;transition:all .3s;border:2px solid transparent}
+.btn-primary{background:var(--rojo);color:#fff}
+.btn-primary:hover{background:var(--rojo-oscuro);transform:translateY(-2px);box-shadow:0 6px 16px rgba(192,57,43,.3)}
+.btn-outline{background:#fff;color:var(--azul);border-color:var(--azul)}
+.btn-outline:hover{background:var(--azul);color:#fff}
+.hero-illustration{display:flex;justify-content:center;align-items:center}
+.hero-illustration svg{max-width:100%;height:auto;filter:drop-shadow(0 10px 30px rgba(0,0,0,.1))}
+
+/* STATS */
+.stats{background:linear-gradient(135deg,var(--azul),var(--azul-claro));padding:50px 0;color:#fff}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;text-align:center}
+.stat-item{position:relative}
+.stat-item:not(:last-child)::after{content:'';position:absolute;right:-15px;top:20%;height:60%;width:1px;background:rgba(255,255,255,.15)}
+.stat-item .icon-wrap{display:inline-flex;width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;justify-content:center;align-items:center;margin-bottom:10px}
+.stat-item .icon-wrap svg{width:26px;height:26px;stroke:var(--dorado);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.stat-item h3{font-size:2.2rem;color:var(--dorado);font-weight:800;margin-bottom:4px}
+.stat-item p{font-size:.9rem;opacity:.85}
+
+/* SERVICIOS */
+.servicios{padding:80px 0;background:#fff}
+.section-title{text-align:center;margin-bottom:50px}
+.section-badge{display:inline-block;background:rgba(192,57,43,.08);color:var(--rojo);padding:6px 16px;border-radius:20px;font-size:.76rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.section-title h2{font-size:2.2rem;color:var(--azul);margin-bottom:14px;font-weight:800;line-height:1.2}
+.section-title p{color:var(--gris);max-width:680px;margin:0 auto;font-size:1.02rem}
+.servicios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.servicio-card{background:#fff;padding:32px 28px;border-radius:14px;border:1px solid #e2e8f0;transition:all .3s;position:relative;overflow:hidden}
+.servicio-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--rojo);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.servicio-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.08);border-color:var(--rojo)}
+.servicio-card:hover::before{transform:scaleX(1)}
+.servicio-icon{width:58px;height:58px;background:linear-gradient(135deg,var(--rojo),var(--rojo-claro));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 14px rgba(192,57,43,.25)}
+.servicio-icon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.servicio-card h3{color:var(--azul);margin-bottom:10px;font-size:1.14rem;font-weight:700}
+.servicio-card p{color:var(--gris);font-size:.92rem;line-height:1.6}
+
+/* MERCADOS */
+.mercados{padding:80px 0;background:var(--gris-claro)}
+.mercados-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.mercado-card{background:#fff;padding:28px 24px;border-radius:14px;text-align:center;transition:all .3s;border:2px solid transparent;position:relative;overflow:hidden}
+.mercado-card:hover{border-color:var(--rojo);transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.08)}
+.mercado-flag{width:64px;height:64px;background:var(--azul);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;color:#fff;font-size:1.6rem;font-weight:800;transition:all .3s}
+.mercado-card:hover .mercado-flag{background:var(--rojo);transform:scale(1.08)}
+.mercado-card h4{color:var(--azul);font-size:1.2rem;margin-bottom:8px;font-weight:700}
+.mercado-card p{color:var(--gris);font-size:.86rem}
+
+/* CTA */
+.cta-section{padding:70px 0;background:#fff}
+.cta-box{background:linear-gradient(135deg,var(--rojo),var(--rojo-oscuro));color:#fff;padding:55px 40px;border-radius:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 20px 50px rgba(192,57,43,.25)}
+.cta-box::before{content:'';position:absolute;top:-50%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.1),transparent 70%);pointer-events:none}
+.cta-box h2{font-size:2rem;margin-bottom:16px;font-weight:800;position:relative;z-index:1}
+.cta-box p{font-size:1.05rem;margin-bottom:30px;opacity:.95;max-width:640px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
+.cta-btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--rojo);padding:15px 38px;border-radius:8px;text-decoration:none;font-weight:700;transition:all .3s;font-size:.95rem;position:relative;z-index:1}
+.cta-btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+
+/* FOOTER */
+footer{background:var(--azul);color:rgba(255,255,255,.75);padding:40px 0 22px;text-align:center}
+footer .logo-text{color:#fff}
+footer p{margin-bottom:6px;font-size:.88rem}
+footer a{color:var(--dorado);text-decoration:none}
+footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
+.footer-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,162,74,.12);color:var(--dorado);padding:7px 16px;border-radius:20px;font-size:.76rem;margin-top:10px;border:1px solid rgba(212,162,74,.3)}
+
+/* CALLOUT CHATBOT */
+.chatbot-callout{position:fixed;bottom:100px;right:90px;background:#fff;padding:16px 22px;border-radius:12px;box-shadow:0 12px 36px rgba(124,58,237,.25);max-width:280px;z-index:998;border:2px solid var(--morado);animation:wiggle 2.5s infinite;font-size:.85rem;line-height:1.5}
+.chatbot-callout strong{color:var(--morado);display:block;margin-bottom:6px;font-size:.92rem}
+.chatbot-callout .close-btn{position:absolute;top:6px;right:10px;background:none;border:none;color:#999;cursor:pointer;font-size:1.2rem;line-height:1}
+.chatbot-callout::after{content:'';position:absolute;bottom:-10px;right:28px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--morado)}
+@keyframes wiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px;text-align:center}
+  .hero-illustration{order:-1;max-width:400px;margin:0 auto}
+  .hero p{margin:0 auto 30px}
+  .hero-buttons{justify-content:center}
+}
+@media(max-width:768px){
+  .hero h1{font-size:1.9rem}
+  .hero p{font-size:1rem}
+  .section-title h2{font-size:1.65rem}
+  nav ul{gap:14px;font-size:.84rem}
+  .logo-text{font-size:1.1rem}
+  .chatbot-callout{display:none}
+  .cta-box{padding:40px 24px}
+  .cta-box h2{font-size:1.5rem}
+  .stat-item:not(:last-child)::after{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BANNER DEMO -->
+<div class="demo-banner">
+  🎯 DEMO WHITEMOON · Simulación de web con Chatbot IA integrado · El widget flotante aparece en la esquina inferior derecha →
+</div>
+
+<!-- CALLOUT -->
+<div class="chatbot-callout" id="callout">
+  <button class="close-btn" onclick="document.getElementById('callout').remove()">×</button>
+  <strong>👇 El chatbot está aquí</strong>
+  Pulsa la burbuja flotante abajo-derecha para probar el asistente IA
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" fill="#1a365d"/>
+          <path d="M24 8 L34 18 L34 30 L24 40 L14 30 L14 18 Z" fill="#c0392b"/>
+          <circle cx="24" cy="24" r="6" fill="#d4a24a"/>
+          <path d="M14 24 L34 24" stroke="#fff" stroke-width="1.5" stroke-dasharray="2,2"/>
+          <path d="M24 14 L24 34" stroke="#fff" stroke-width="1.5" stroke-dasharray="2,2"/>
+        </svg>
+        <div class="logo-text">IBER<span>GLOBAL</span></div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#mercados">Mercados</a></li>
+          <li><a href="#">Campus</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">Consultoría desde 2001</div>
+        <h1>Consultoría en <span>Comercio Exterior</span> e Internacionalización</h1>
+        <p>Acompañamos a empresas españolas en su expansión internacional. Más de 8.000 suscriptores confían en nuestro análisis y experiencia en mercados globales.</p>
+        <div class="hero-buttons">
+          <a href="#servicios" class="btn btn-primary">
+            Ver servicios
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#" class="btn btn-outline">Contactar</a>
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Mundo central -->
+          <circle cx="250" cy="200" r="130" fill="#1a365d"/>
+          <circle cx="250" cy="200" r="130" fill="url(#globoGradient)" opacity=".9"/>
+          
+          <!-- Meridianos -->
+          <ellipse cx="250" cy="200" rx="130" ry="40" fill="none" stroke="#d4a24a" stroke-width="1.5" opacity=".4"/>
+          <ellipse cx="250" cy="200" rx="130" ry="80" fill="none" stroke="#d4a24a" stroke-width="1.5" opacity=".4"/>
+          <ellipse cx="250" cy="200" rx="40" ry="130" fill="none" stroke="#d4a24a" stroke-width="1.5" opacity=".4"/>
+          <ellipse cx="250" cy="200" rx="80" ry="130" fill="none" stroke="#d4a24a" stroke-width="1.5" opacity=".4"/>
+          <line x1="120" y1="200" x2="380" y2="200" stroke="#d4a24a" stroke-width="1.5" opacity=".4"/>
+          
+          <!-- Continentes estilizados -->
+          <path d="M200 160 Q230 140 265 155 Q290 150 290 175 Q295 195 275 210 Q255 220 230 210 Q205 195 200 180 Z" fill="#c0392b" opacity=".85"/>
+          <path d="M195 225 Q215 220 235 240 Q240 265 225 280 Q205 275 195 255 Z" fill="#c0392b" opacity=".85"/>
+          <path d="M280 170 Q310 165 325 185 Q320 210 305 220 Q285 215 280 195 Z" fill="#c0392b" opacity=".85"/>
+          
+          <!-- Puntos de conexión internacional -->
+          <circle cx="140" cy="130" r="8" fill="#c0392b"/>
+          <circle cx="140" cy="130" r="14" fill="#c0392b" opacity=".2"/>
+          <circle cx="380" cy="110" r="8" fill="#c0392b"/>
+          <circle cx="380" cy="110" r="14" fill="#c0392b" opacity=".2"/>
+          <circle cx="400" cy="290" r="8" fill="#c0392b"/>
+          <circle cx="400" cy="290" r="14" fill="#c0392b" opacity=".2"/>
+          <circle cx="100" cy="290" r="8" fill="#c0392b"/>
+          <circle cx="100" cy="290" r="14" fill="#c0392b" opacity=".2"/>
+          
+          <!-- Líneas de conexión -->
+          <path d="M140 130 Q250 60 380 110" fill="none" stroke="#d4a24a" stroke-width="2" stroke-dasharray="5,3" opacity=".7"/>
+          <path d="M380 110 Q450 200 400 290" fill="none" stroke="#d4a24a" stroke-width="2" stroke-dasharray="5,3" opacity=".7"/>
+          <path d="M400 290 Q250 340 100 290" fill="none" stroke="#d4a24a" stroke-width="2" stroke-dasharray="5,3" opacity=".7"/>
+          <path d="M100 290 Q60 200 140 130" fill="none" stroke="#d4a24a" stroke-width="2" stroke-dasharray="5,3" opacity=".7"/>
+          
+          <!-- Aviones -->
+          <g transform="translate(200,80) rotate(25)">
+            <path d="M0 0 L20 -5 L25 0 L20 5 Z M-10 0 L0 -2 L0 2 Z" fill="#c0392b"/>
+          </g>
+          <g transform="translate(330,250) rotate(-40)">
+            <path d="M0 0 L20 -5 L25 0 L20 5 Z M-10 0 L0 -2 L0 2 Z" fill="#c0392b"/>
+          </g>
+          
+          <!-- Gradiente -->
+          <defs>
+            <radialGradient id="globoGradient" cx="30%" cy="30%">
+              <stop offset="0%" stop-color="#2c5282"/>
+              <stop offset="100%" stop-color="#1a365d"/>
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+        </div>
+        <h3>20+</h3>
+        <p>Años de experiencia</p>
+      </div>
+      <div class="stat-item">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>8.000+</h3>
+        <p>Suscriptores</p>
+      </div>
+      <div class="stat-item">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M22 15v-2a4 4 0 0 0-4-4h-4a4 4 0 0 0-4 4v2"/><rect x="10" y="9" width="12" height="12"/></svg>
+        </div>
+        <h3>26.000+</h3>
+        <p>Miembros LinkedIn</p>
+      </div>
+      <div class="stat-item">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>50+</h3>
+        <p>Mercados cubiertos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios" id="servicios">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-badge">Nuestros servicios</div>
+      <h2>Apoyo integral en internacionalización</h2>
+      <p>Acompañamos a las empresas en todas las fases de su proceso de expansión internacional con soluciones adaptadas</p>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>Estrategias de Internacionalización</h3>
+        <p>Diseño de estrategias y planes de exportación personalizados según sector y mercado objetivo.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Financiación Internacional</h3>
+        <p>Asesoramiento en FIEM, crédito comprador y seguro de crédito a la exportación.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Análisis de Riesgo País</h3>
+        <p>Evaluación integral de riesgos políticos, económicos y comerciales en mercados internacionales.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <h3>Formación Especializada</h3>
+        <p>Campus Iberglobal: cursos online sobre China, África, Latinoamérica y más mercados clave.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
+        </div>
+        <h3>Estudios de Mercado</h3>
+        <p>Informes detallados sobre oportunidades y tendencias del comercio internacional.</p>
+      </div>
+      <div class="servicio-card">
+        <div class="servicio-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Acceso a Mercados</h3>
+        <p>Apoyo para el desarrollo de negocios e inversiones en mercados internacionales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADOS -->
+<section class="mercados" id="mercados">
+  <div class="container">
+    <div class="section-title">
+      <div class="section-badge">Cobertura geográfica</div>
+      <h2>Mercados Estratégicos</h2>
+      <p>Especialización en las principales regiones económicas del mundo</p>
+    </div>
+    <div class="mercados-grid">
+      <div class="mercado-card">
+        <div class="mercado-flag">CN</div>
+        <h4>China</h4>
+        <p>Referencia a través de Iberchina</p>
+      </div>
+      <div class="mercado-card">
+        <div class="mercado-flag">LA</div>
+        <h4>Latinoamérica</h4>
+        <p>50% de nuestra audiencia</p>
+      </div>
+      <div class="mercado-card">
+        <div class="mercado-flag">AF</div>
+        <h4>África</h4>
+        <p>Curso especializado</p>
+      </div>
+      <div class="mercado-card">
+        <div class="mercado-flag">EU</div>
+        <h4>Europa</h4>
+        <p>Acuerdos comerciales y UE</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <h2>¿Tiene una operación internacional que quiere plantearnos?</h2>
+      <p>Contáctenos y en pocos días le responderemos con los servicios que podemos ofrecerle. También le enviaremos información detallada sobre nuestra experiencia, referencias y clientes.</p>
+      <a href="#" class="cta-btn-white">
+        Solicitar información
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:16px">
+      <svg width="42" height="42" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="22" fill="#fff"/>
+        <path d="M24 8 L34 18 L34 30 L24 40 L14 30 L14 18 Z" fill="#c0392b"/>
+        <circle cx="24" cy="24" r="6" fill="#d4a24a"/>
+      </svg>
+      <div class="logo-text" style="font-size:1.3rem">IBER<span style="color:#d4a24a">GLOBAL</span></div>
+    </div>
+    <p><strong style="color:#fff">Iberglobal Consultoría de Internacionalización</strong></p>
+    <p>Fundada en 2001 · Madrid, España</p>
+    <p>direccion@iberglobal.com</p>
+    <hr>
+    <p>© 2026 Iberglobal · Todos los derechos reservados</p>
+    <div class="footer-badge">
+      🎯 DEMO · Integración por WHITEMOON Agencia IA · whitemoon.es
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- CHATBOT IA WHITEMOON · Chatbase Embed -->
+<!-- ============================================================ -->
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="n7VvRZhF7YeJliVurG3-C";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
+</body>
+</html>
