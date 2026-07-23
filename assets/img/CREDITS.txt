@@ -1,0 +1,15 @@
+Imagenes de Unsplash (licencia Unsplash, uso libre).
+
+serv-estrategias: foto de Radission US en Unsplash — https://unsplash.com/photos/two-people-shaking-hands-in-front-of-a-laptop-_XeQ8XEWb4Q
+serv-financiacion: foto de Steffen Albrecht en Unsplash — https://unsplash.com/photos/modern-skyscrapers-against-a-clear-blue-sky-cLOqcaibwfE
+serv-riesgo: foto de Leandro Barreto en Unsplash — https://unsplash.com/photos/a-map-of-the-world-with-pins-on-it-nomAp6_KVXU
+serv-formacion: foto de Vitaly Gariev en Unsplash — https://unsplash.com/photos/teacher-working-on-laptop-in-front-of-chalkboard-fTYbq_2B97s
+serv-estudios: foto de Carlos Muza en Unsplash — https://unsplash.com/photos/laptop-computer-on-glass-top-table-hpjSkU2UYSU
+serv-acceso: foto de CHUTTERSNAP en Unsplash — https://unsplash.com/photos/aerial-view-of-shipping-container-yard-9cCeS9Sg6nU
+mrk-china: foto de Hanny Naibaho en Unsplash — https://unsplash.com/photos/oriental-pearl-tower-in-shanghai-during-daytime-mnyJEvSLtvk
+mrk-latam: foto de Joao Tzanno en Unsplash — https://unsplash.com/photos/city-scape-during-daytime-BxoaHOKCD_Q
+mrk-africa: foto de imsogabriel stock en Unsplash — https://unsplash.com/photos/a-cityscape-of-nairobi-kenya-on-a-sunny-day-IaJm3mq0F5o
+mrk-europa: foto de 𝕡𝕒𝕨𝕤 𝕒𝕟𝕕 𝕡𝕣𝕚𝕟𝕥𝕤 en Unsplash — https://unsplash.com/photos/modern-glass-building-with-european-union-flags-lURELJ9C_xA
+campus: foto de Vitaly Gariev en Unsplash — https://unsplash.com/photos/diverse-group-of-students-gathered-around-laptop-kp7qkHTgSKc
+iberchina: foto de William Olivieri en Unsplash — https://unsplash.com/photos/brown-concrete-building-on-top-of-hill-HwY9R6_YzgM
+newsletter: foto de Anne Nygård en Unsplash — https://unsplash.com/photos/graphical-user-interface-application-x07ELaNFt34
