@@ -14,7 +14,7 @@
   --azul-claro:#2c5282;
   --dorado:#d4a24a;
   --morado:#7c3aed;
-  --gris:#64748b;
+  --gris:#5f6e84;
   --gris-claro:#f1f5f9;
   --texto:#1e293b;
 }
@@ -75,25 +75,34 @@ nav a:hover::after{width:100%}
 .section-badge{display:inline-block;background:rgba(192,57,43,.08);color:var(--rojo);padding:6px 16px;border-radius:20px;font-size:.76rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
 .section-title h2{font-size:2.2rem;color:var(--azul);margin-bottom:14px;font-weight:800;line-height:1.2}
 .section-title p{color:var(--gris);max-width:680px;margin:0 auto;font-size:1.02rem}
-.servicios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-.servicio-card{background:#fff;padding:32px 28px;border-radius:14px;border:1px solid #e2e8f0;transition:all .3s;position:relative;overflow:hidden}
-.servicio-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--rojo);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.servicio-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.08);border-color:var(--rojo)}
-.servicio-card:hover::before{transform:scaleX(1)}
-.servicio-icon{width:58px;height:58px;background:linear-gradient(135deg,var(--rojo),var(--rojo-claro));border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;box-shadow:0 4px 14px rgba(192,57,43,.25)}
-.servicio-icon svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.servicio-card h3{color:var(--azul);margin-bottom:10px;font-size:1.14rem;font-weight:700}
+.servicios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.servicio-card{background:#fff;border-radius:16px;border:1px solid #e6e9ef;transition:transform .3s,box-shadow .3s,border-color .3s;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.servicio-card:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(15,23,42,.13);border-color:#d6dbe6}
+/* Media compartida: foto arriba + degradado que funde en el fondo de la tarjeta */
+.card-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--gris-claro)}
+.card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.servicio-card:hover .card-media img{transform:scale(1.06)}
+.card-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,54,93,.30)0%,rgba(26,54,93,0)34%,rgba(255,255,255,0)60%,rgba(255,255,255,.94)90%,#fff 100%)}
+.servicio-body{padding:0 26px 30px;position:relative;flex:1}
+.servicio-icon{width:56px;height:56px;background:linear-gradient(135deg,var(--rojo),var(--rojo-claro));border-radius:14px;display:flex;align-items:center;justify-content:center;margin:-34px 0 16px;box-shadow:0 8px 20px rgba(192,57,43,.32);position:relative;z-index:2;border:3px solid #fff}
+.servicio-icon svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.servicio-card h3{color:var(--azul);margin-bottom:9px;font-size:1.16rem;font-weight:700;line-height:1.25}
 .servicio-card p{color:var(--gris);font-size:.92rem;line-height:1.6}
 
 /* MERCADOS */
-.mercados{padding:80px 0;background:var(--gris-claro)}
-.mercados-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
-.mercado-card{background:#fff;padding:28px 24px;border-radius:14px;text-align:center;transition:all .3s;border:2px solid transparent;position:relative;overflow:hidden}
-.mercado-card:hover{border-color:var(--rojo);transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.08)}
-.mercado-flag{width:64px;height:64px;background:var(--azul);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;color:#fff;font-size:1.6rem;font-weight:800;transition:all .3s}
-.mercado-card:hover .mercado-flag{background:var(--rojo);transform:scale(1.08)}
-.mercado-card h4{color:var(--azul);font-size:1.2rem;margin-bottom:8px;font-weight:700}
-.mercado-card p{color:var(--gris);font-size:.86rem}
+.mercados{padding:88px 0;background:var(--gris-claro)}
+.mercados-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.mercado-card{background:#fff;border-radius:16px;overflow:hidden;transition:transform .3s,box-shadow .3s;border:1px solid #e6e9ef;display:flex;flex-direction:column}
+.mercado-card:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(15,23,42,.15)}
+.mercado-media{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--azul)}
+.mercado-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.mercado-card:hover .mercado-media img{transform:scale(1.06)}
+.mercado-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,56,.62)0%,rgba(15,31,56,.12)45%,rgba(15,31,56,.05)100%)}
+.mercado-flag{position:absolute;top:14px;left:14px;width:48px;height:48px;background:rgba(255,255,255,.94);color:var(--azul);border-radius:12px;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;letter-spacing:.5px;z-index:2;box-shadow:0 4px 14px rgba(0,0,0,.22);transition:background .3s,color .3s}
+.mercado-card:hover .mercado-flag{background:var(--rojo);color:#fff}
+.mercado-body{padding:18px 22px 24px;flex:1}
+.mercado-card h4{color:var(--azul);font-size:1.16rem;margin-bottom:6px;font-weight:700}
+.mercado-card p{color:var(--gris);font-size:.86rem;line-height:1.5}
 
 /* NEWSLETTER */
 .newsletter-section{padding:80px 0;background:#fff}
@@ -250,6 +259,38 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 .iberchina-libro p{color:rgba(255,255,255,.75);font-size:.84rem;line-height:1.6;margin:0}
 @media(max-width:900px){.iberchina-inner{grid-template-columns:1fr}}
 
+/* ═══ MEJORA VISUAL · imágenes de sección y hero ═══ */
+/* Hero: franja de confianza institucional + realce del globo */
+.hero-trust{margin-top:28px;padding-top:20px;border-top:1px solid #e6e9ef;font-size:.82rem;color:var(--gris);line-height:1.6}
+.hero-trust span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--azul-claro);margin-bottom:6px;opacity:.8}
+.hero-trust strong{color:var(--azul);font-weight:700}
+.hero-illustration{position:relative}
+.hero-illustration::before{content:'';position:absolute;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(26,54,93,.10),transparent 70%);z-index:0}
+.hero-illustration canvas{position:relative;z-index:1}
+@media(max-width:900px){.hero-trust{max-width:540px;margin-left:auto;margin-right:auto}}
+
+/* Campus: banner con estudiantes */
+.campus-banner{border-radius:16px;overflow:hidden;margin-bottom:26px;aspect-ratio:16/9;box-shadow:0 12px 32px rgba(15,23,42,.14);position:relative}
+.campus-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.campus-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,54,93,.32),transparent 55%)}
+.campus-banner .campus-banner-tag{position:absolute;left:16px;bottom:14px;z-index:2;background:rgba(255,255,255,.94);color:var(--azul);font-size:.74rem;font-weight:700;padding:6px 14px;border-radius:20px}
+
+/* Iberchina: banner Gran Muralla */
+.iberchina-banner{border-radius:16px;overflow:hidden;aspect-ratio:16/9;position:relative;box-shadow:0 16px 40px rgba(0,0,0,.35);border:1px solid rgba(212,162,74,.25)}
+.iberchina-banner img{width:100%;height:100%;object-fit:cover;display:block}
+.iberchina-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,56,.72),rgba(15,31,56,.05)60%)}
+.iberchina-banner .ib-banner-cap{position:absolute;left:18px;bottom:14px;z-index:2;color:#fff;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+/* Newsletter: imagen del artículo destacado */
+.articulo-media{border-radius:12px;overflow:hidden;aspect-ratio:16/9;margin-bottom:22px;position:relative}
+.articulo-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.articulo-destacado:hover .articulo-media img{transform:scale(1.04)}
+.articulo-media::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,54,93,.28),transparent 50%)}
+@media(min-width:820px){
+  .articulo-destacado .articulo-inner{display:grid;grid-template-columns:320px 1fr;gap:30px;align-items:center}
+  .articulo-media{margin-bottom:0;aspect-ratio:4/3}
+}
+
 /* ═══ CHATBOT IA RAG · Integración WhiteMoon ═══ */
 .wm-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;z-index:1000;background:linear-gradient(135deg,var(--morado),var(--azul));color:#fff;font-size:1.5rem;line-height:1;box-shadow:0 8px 28px rgba(124,58,237,.42);transition:transform .2s,box-shadow .2s}
 .wm-fab:hover{transform:scale(1.07);box-shadow:0 12px 34px rgba(124,58,237,.55)}
@@ -364,6 +405,10 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.251.621 4.357 1.7 6.159l-1.799 6.591 6.756-1.771c1.752.96 3.774 1.513 5.946 1.514 6.627 0 12-5.373 12-12 .001-6.628-5.372-12.001-11.999-12.001z"/></svg>
             WhatsApp
           </a>
+        </div>
+        <div class="hero-trust">
+          <span>Con la confianza de profesionales de</span>
+          <strong>Real Instituto Elcano</strong> · <strong>Colegio de Economistas de Madrid</strong> · <strong>Comité Empresarial Hispano-Chino</strong>
         </div>
       </div>
       <div class="hero-illustration">
@@ -488,34 +533,52 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
     </div>
     <div class="servicios-grid">
       <div class="servicio-card">
-        <div class="servicio-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
-        <h3>Estrategias de Internacionalización</h3>
-        <p>Diseño de estrategias y planes de exportación personalizados según sector y mercado objetivo.</p>
+        <div class="card-media"><picture><source type="image/webp" srcset="assets/img/serv-estrategias.webp"><img src="assets/img/serv-estrategias.jpg" alt="Reunión de negocios internacional con un apretón de manos" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="servicio-body">
+          <div class="servicio-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Estrategias de Internacionalización</h3>
+          <p>Diseño de estrategias y planes de exportación personalizados según sector y mercado objetivo.</p>
+        </div>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
-        <h3>Financiación Internacional</h3>
-        <p>Asesoramiento en FIEM, crédito comprador y seguro de crédito a la exportación.</p>
+        <div class="card-media"><picture><source type="image/webp" srcset="assets/img/serv-financiacion.webp"><img src="assets/img/serv-financiacion.jpg" alt="Distrito financiero con rascacielos de entidades bancarias" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="servicio-body">
+          <div class="servicio-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h3>Financiación Internacional</h3>
+          <p>Asesoramiento en FIEM, crédito comprador y seguro de crédito a la exportación.</p>
+        </div>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Análisis de Riesgo País</h3>
-        <p>Evaluación integral de riesgos políticos, económicos y comerciales en mercados internacionales.</p>
+        <div class="card-media"><picture><source type="image/webp" srcset="assets/img/serv-riesgo.webp"><img src="assets/img/serv-riesgo.jpg" alt="Mapa mundial con marcadores usado para el análisis de riesgo país" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="servicio-body">
+          <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <h3>Análisis de Riesgo País</h3>
+          <p>Evaluación integral de riesgos políticos, económicos y comerciales en mercados internacionales.</p>
+        </div>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-        <h3>Formación Especializada</h3>
-        <p>Campus Iberglobal: cursos online sobre China, África, Latinoamérica y más mercados clave.</p>
+        <div class="card-media"><picture><source type="image/webp" srcset="assets/img/serv-formacion.webp"><img src="assets/img/serv-formacion.jpg" alt="Formación especializada: profesora impartiendo clase con un portátil" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="servicio-body">
+          <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <h3>Formación Especializada</h3>
+          <p>Campus Iberglobal: cursos online sobre China, África, Latinoamérica y más mercados clave.</p>
+        </div>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
-        <h3>Estudios de Mercado</h3>
-        <p>Informes detallados sobre oportunidades y tendencias del comercio internacional.</p>
+        <div class="card-media"><picture><source type="image/webp" srcset="assets/img/serv-estudios.webp"><img src="assets/img/serv-estudios.jpg" alt="Panel de datos y analítica de mercado en la pantalla de un portátil" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="servicio-body">
+          <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg></div>
+          <h3>Estudios de Mercado</h3>
+          <p>Informes detallados sobre oportunidades y tendencias del comercio internacional.</p>
+        </div>
       </div>
       <div class="servicio-card">
-        <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Acceso a Mercados</h3>
-        <p>Apoyo para el desarrollo de negocios e inversiones en mercados internacionales.</p>
+        <div class="card-media"><picture><source type="image/webp" srcset="assets/img/serv-acceso.webp"><img src="assets/img/serv-acceso.jpg" alt="Vista aérea de un puerto de contenedores para el acceso a mercados" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="servicio-body">
+          <div class="servicio-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Acceso a Mercados</h3>
+          <p>Apoyo para el desarrollo de negocios e inversiones en mercados internacionales.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -530,10 +593,22 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
       <p>Especialización en las principales regiones económicas del mundo</p>
     </div>
     <div class="mercados-grid">
-      <div class="mercado-card" onclick="document.getElementById('iberchina').scrollIntoView({behavior:'smooth'})" style="cursor:pointer"><div class="mercado-flag">CN</div><h4>China</h4><p>Web especializada <strong>Iberchina</strong> · 2.500 usuarios · Desde 2005</p></div>
-      <div class="mercado-card"><div class="mercado-flag">LA</div><h4>Latinoamérica</h4><p>50% de nuestra audiencia</p></div>
-      <div class="mercado-card"><div class="mercado-flag">AF</div><h4>África</h4><p>Curso especializado</p></div>
-      <div class="mercado-card"><div class="mercado-flag">EU</div><h4>Europa</h4><p>Acuerdos comerciales y UE</p></div>
+      <div class="mercado-card" onclick="document.getElementById('iberchina').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
+        <div class="mercado-media"><div class="mercado-flag">CN</div><picture><source type="image/webp" srcset="assets/img/mrk-china.webp"><img src="assets/img/mrk-china.jpg" alt="Skyline de Shanghái, China" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="mercado-body"><h4>China</h4><p>Web especializada <strong>Iberchina</strong> · 2.500 usuarios · Desde 2005</p></div>
+      </div>
+      <div class="mercado-card">
+        <div class="mercado-media"><div class="mercado-flag">LA</div><picture><source type="image/webp" srcset="assets/img/mrk-latam.webp"><img src="assets/img/mrk-latam.jpg" alt="Skyline de la Avenida Paulista en São Paulo, Latinoamérica" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="mercado-body"><h4>Latinoamérica</h4><p>50% de nuestra audiencia</p></div>
+      </div>
+      <div class="mercado-card">
+        <div class="mercado-media"><div class="mercado-flag">AF</div><picture><source type="image/webp" srcset="assets/img/mrk-africa.webp"><img src="assets/img/mrk-africa.jpg" alt="Skyline de Nairobi, África" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="mercado-body"><h4>África</h4><p>Curso especializado</p></div>
+      </div>
+      <div class="mercado-card">
+        <div class="mercado-media"><div class="mercado-flag">EU</div><picture><source type="image/webp" srcset="assets/img/mrk-europa.webp"><img src="assets/img/mrk-europa.jpg" alt="Sede de la Comisión Europea con banderas de la Unión Europea" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="mercado-body"><h4>Europa</h4><p>Acuerdos comerciales y UE</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -551,6 +626,10 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
     <div class="campus-grid">
       <!-- Izquierda: descripción y objetivos -->
       <div>
+        <div class="campus-banner">
+          <picture><source type="image/webp" srcset="assets/img/campus.webp"><img src="assets/img/campus.jpg" alt="Estudiantes trabajando juntos con un portátil en un aula universitaria" width="1000" height="625" loading="lazy" decoding="async"></picture>
+          <span class="campus-banner-tag">🎓 Formación online · Campus Iberglobal</span>
+        </div>
         <div class="campus-badge-cn">🇨🇳 Especial estudiantes chinos</div>
         <h3 class="campus-title">Prepárate para trabajar en España y Latinoamérica</h3>
         <p class="campus-intro">Curso diseñado y preparado especialmente para estudiantes chinos. Su objetivo es prepararles para trabajar en negocios en España y en los países latinoamericanos, perfeccionando el manejo del lenguaje español en temas económicos y comerciales, así como desarrollar habilidades prácticas para la vida laboral y profesional.</p>
@@ -631,6 +710,9 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 
     <!-- Artículo destacado -->
     <div class="articulo-destacado">
+      <div class="articulo-inner">
+        <div class="articulo-media"><picture><source type="image/webp" srcset="assets/img/newsletter.webp"><img src="assets/img/newsletter.jpg" alt="Pantalla con gráficos de mercados financieros e índices bursátiles" width="1000" height="625" loading="lazy" decoding="async"></picture></div>
+        <div class="articulo-content">
       <div class="articulo-tag">Último análisis</div>
       <h3>La nueva globalización: claves para comprenderla</h3>
       <p class="articulo-texto">
@@ -652,6 +734,8 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
         <span class="tag-pill">Ficha económica China</span>
         <span class="tag-pill">Perspectivas 2025</span>
         <span class="tag-pill">Economía global</span>
+      </div>
+        </div>
       </div>
     </div>
 
@@ -778,6 +862,10 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 
       <!-- Derecha -->
       <div class="iberchina-right">
+        <div class="iberchina-banner">
+          <picture><source type="image/webp" srcset="assets/img/iberchina.webp"><img src="assets/img/iberchina.jpg" alt="La Gran Muralla China serpenteando por las montañas" width="1000" height="625" loading="lazy" decoding="async"></picture>
+          <span class="ib-banner-cap">🇨🇳 La referencia sobre China en castellano</span>
+        </div>
         <div class="iberchina-stat-grid">
           <div class="iberchina-stat"><strong>2005</strong><span>Año de fundación</span></div>
           <div class="iberchina-stat"><strong>2.500+</strong><span>Usuarios registrados</span></div>
