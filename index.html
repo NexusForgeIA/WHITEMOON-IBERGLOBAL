@@ -25,11 +25,8 @@
 }
 body{font-family:-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color:var(--texto);line-height:1.65;background:var(--bg);overflow-x:hidden}
 
-/* BANNER DEMO */
-.demo-banner{background:linear-gradient(135deg,var(--morado),var(--dorado));color:#fff;text-align:center;padding:12px 20px;font-size:.82rem;font-weight:600;position:sticky;top:0;z-index:100;letter-spacing:.3px;box-shadow:0 2px 8px rgba(124,58,237,.2)}
-
 /* HEADER */
-header{background:rgba(8,8,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--borde);padding:18px 0;position:sticky;top:42px;z-index:99;box-shadow:0 1px 12px rgba(0,0,0,.4)}
+header{background:rgba(8,8,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--borde);padding:18px 0;position:sticky;top:0;z-index:99;box-shadow:0 1px 12px rgba(0,0,0,.4)}
 .container{max-width:1200px;margin:0 auto;padding:0 24px}
 .header-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
@@ -301,52 +298,55 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
   .articulo-media{margin-bottom:0;aspect-ratio:4/3}
 }
 
-/* ═══ CHATBOT IA RAG · Integración WhiteMoon ═══ */
-.wm-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;z-index:1000;background:linear-gradient(135deg,var(--morado),var(--azul));color:#fff;font-size:1.5rem;line-height:1;box-shadow:0 8px 28px rgba(124,58,237,.42);transition:transform .2s,box-shadow .2s}
-.wm-fab:hover{transform:scale(1.07);box-shadow:0 12px 34px rgba(124,58,237,.55)}
+/* ═══ CHATBOT IA · Widget estilo Iberglobal (rojo + negro) ═══ */
+.wm-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;z-index:1000;background:linear-gradient(135deg,var(--rojo),var(--rojo-oscuro));color:#fff;font-size:1.5rem;line-height:1;box-shadow:0 8px 28px rgba(192,57,43,.5);transition:transform .2s,box-shadow .2s}
+.wm-fab:hover{transform:scale(1.07);box-shadow:0 12px 34px rgba(192,57,43,.62)}
 .wm-fab:focus-visible{outline:3px solid var(--dorado);outline-offset:3px}
 
-.wm-chat{position:fixed;bottom:96px;right:24px;width:395px;max-width:calc(100vw - 32px);height:590px;max-height:calc(100vh - 130px);background:#fff;border-radius:16px;z-index:1000;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(15,23,42,.28);border:1px solid #e2e8f0;animation:wmIn .22s ease-out}
+.wm-chat{position:fixed;bottom:96px;right:24px;width:395px;max-width:calc(100vw - 32px);height:590px;max-height:calc(100vh - 130px);background:#101014;border-radius:16px;z-index:1000;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.6);border:1px solid var(--borde-rojo);animation:wmIn .22s ease-out}
 .wm-chat[hidden]{display:none}
 @keyframes wmIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-.wm-chat-head{background:linear-gradient(135deg,var(--azul),var(--azul-claro));color:#fff;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0}
-.wm-chat-id{display:flex;align-items:center;gap:10px}
-.wm-chat-id strong{display:block;font-size:.92rem;font-weight:700;line-height:1.3}
-.wm-chat-id small{display:block;font-size:.72rem;opacity:.82;line-height:1.3}
-.wm-chat-dot{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.25);flex-shrink:0}
-.wm-chat-x{background:none;border:none;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;opacity:.75;padding:0 4px}
+.wm-chat-head{background:linear-gradient(135deg,var(--rojo),var(--rojo-oscuro));color:#fff;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-shrink:0}
+.wm-chat-id{display:flex;align-items:center;gap:11px}
+.wm-chat-logo{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wm-chat-logo svg{width:20px;height:20px;display:block}
+.wm-chat-id strong{display:block;font-size:.94rem;font-weight:800;line-height:1.25;color:#fff}
+.wm-chat-id small{display:block;font-size:.72rem;line-height:1.3;color:rgba(255,255,255,.9)}
+.wm-chat-x{background:none;border:none;color:#fff;font-size:1.5rem;line-height:1;cursor:pointer;opacity:.85;padding:0 4px}
 .wm-chat-x:hover{opacity:1}
 
-.wm-chat-body{flex:1;overflow-y:auto;padding:16px;background:var(--gris-claro);display:flex;flex-direction:column;gap:12px}
-.wm-msg{max-width:88%;padding:11px 14px;border-radius:12px;font-size:.87rem;line-height:1.6;word-wrap:break-word}
+.wm-chat-body{flex:1;overflow-y:auto;padding:16px;background:#0c0c10;display:flex;flex-direction:column;gap:12px}
+/* Texto de mensajes: nítido, color sólido, sin sombras/blur/opacidad */
+.wm-msg{max-width:88%;padding:11px 14px;border-radius:12px;font-size:.9rem;line-height:1.6;word-wrap:break-word;text-shadow:none;filter:none;opacity:1;-webkit-font-smoothing:antialiased}
+.wm-msg p{margin:0}
 .wm-msg p+p{margin-top:8px}
-.wm-bot{background:#fff;color:var(--texto);border:1px solid #e2e8f0;border-bottom-left-radius:4px;align-self:flex-start}
-.wm-user{background:var(--azul);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.wm-bot{background:#ffffff;color:#15151b;border:1px solid #e2e2e8;border-bottom-left-radius:4px;align-self:flex-start}
+.wm-bot strong{color:#000;font-weight:700}
+.wm-user{background:var(--rojo);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
 
-.wm-fuentes{margin-top:10px;padding-top:10px;border-top:1px dashed #cbd5e1;display:flex;flex-direction:column;gap:4px}
-.wm-fuentes-t{font-size:.68rem;font-weight:700;color:var(--gris);text-transform:uppercase;letter-spacing:.5px}
-.wm-fuentes a,.wm-fuentes span:not(.wm-fuentes-t){font-size:.76rem;color:var(--morado);text-decoration:none;line-height:1.45}
+.wm-fuentes{margin-top:10px;padding-top:10px;border-top:1px dashed #c9ccd6;display:flex;flex-direction:column;gap:4px}
+.wm-fuentes-t{font-size:.68rem;font-weight:800;color:#6a7180;text-transform:uppercase;letter-spacing:.5px}
+.wm-fuentes a,.wm-fuentes span:not(.wm-fuentes-t){font-size:.78rem;color:var(--rojo);text-decoration:none;line-height:1.45;font-weight:600}
 .wm-fuentes a:hover{text-decoration:underline}
 
 .wm-esperando{display:flex;gap:5px;align-items:center;padding:14px}
-.wm-esperando span{width:7px;height:7px;border-radius:50%;background:var(--gris);animation:wmBlink 1.3s infinite}
+.wm-esperando span{width:7px;height:7px;border-radius:50%;background:#9aa0ac;animation:wmBlink 1.3s infinite}
 .wm-esperando span:nth-child(2){animation-delay:.18s}
 .wm-esperando span:nth-child(3){animation-delay:.36s}
 @keyframes wmBlink{0%,60%,100%{opacity:.28}30%{opacity:1}}
 
 .wm-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
-.wm-chips button{background:#fff;border:1px solid #cbd5e1;color:var(--azul);font-size:.76rem;font-weight:600;padding:7px 12px;border-radius:16px;cursor:pointer;transition:all .18s;font-family:inherit;text-align:left}
-.wm-chips button:hover{background:var(--azul);color:#fff;border-color:var(--azul)}
+.wm-chips button{background:rgba(255,255,255,.05);border:1px solid var(--borde-rojo);color:#ff8579;font-size:.78rem;font-weight:600;padding:7px 12px;border-radius:16px;cursor:pointer;transition:all .18s;font-family:inherit;text-align:left}
+.wm-chips button:hover{background:var(--rojo);color:#fff;border-color:var(--rojo)}
 
-.wm-chat-foot{display:flex;gap:8px;padding:12px;background:#fff;border-top:1px solid #e2e8f0;flex-shrink:0}
-.wm-chat-foot input{flex:1;border:1px solid #cbd5e1;border-radius:22px;padding:10px 16px;font-size:.86rem;font-family:inherit;color:var(--texto);outline:none;min-width:0}
-.wm-chat-foot input:focus{border-color:var(--morado);box-shadow:0 0 0 3px rgba(124,58,237,.13)}
-.wm-chat-foot button{width:40px;height:40px;border-radius:50%;border:none;background:var(--morado);color:#fff;cursor:pointer;font-size:.95rem;flex-shrink:0;transition:background .18s}
-.wm-chat-foot button:hover:not(:disabled){background:#6d28d9}
+.wm-chat-foot{display:flex;gap:8px;padding:12px;background:#101014;border-top:1px solid var(--borde);flex-shrink:0}
+.wm-chat-foot input{flex:1;border:1px solid #33333d;border-radius:22px;padding:10px 16px;font-size:.88rem;font-family:inherit;color:#fff;background:#1a1a20;outline:none;min-width:0}
+.wm-chat-foot input::placeholder{color:#8b8b96}
+.wm-chat-foot input:focus{border-color:var(--rojo);box-shadow:0 0 0 3px rgba(192,57,43,.22)}
+.wm-chat-foot button{width:40px;height:40px;border-radius:50%;border:none;background:var(--rojo);color:#fff;cursor:pointer;font-size:.95rem;flex-shrink:0;transition:background .18s}
+.wm-chat-foot button:hover:not(:disabled){background:var(--rojo-oscuro)}
 .wm-chat-foot button:disabled{opacity:.5;cursor:not-allowed}
-
-.wm-chat-sello{background:linear-gradient(135deg,var(--morado),var(--dorado));color:#fff;text-align:center;font-size:.7rem;font-weight:600;padding:7px 10px;letter-spacing:.2px;flex-shrink:0}
 
 @media(max-width:520px){
   .wm-chat{right:12px;left:12px;width:auto;bottom:88px;height:calc(100vh - 150px)}
@@ -355,11 +355,6 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 </style>
 </head>
 <body>
-
-<!-- BANNER DEMO -->
-<div class="demo-banner">
-  🎯 DEMO WHITEMOON · Simulación de web con Chatbot IA integrado · El widget flotante aparece en la esquina inferior derecha →
-</div>
 
 <!-- CALLOUT -->
 <div class="chatbot-callout" id="callout">
@@ -923,7 +918,9 @@ function suscribir(){
 <div class="wm-chat" id="wm-chat" hidden>
   <div class="wm-chat-head">
     <div class="wm-chat-id">
-      <span class="wm-chat-dot"></span>
+      <span class="wm-chat-logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="6" rx="1.5" fill="#fff"/><rect x="9" y="11" width="6" height="10" rx="1.5" fill="#fff"/></svg>
+      </span>
       <div>
         <strong>Asistente Iberglobal</strong>
         <small>IA sobre nuestro contenido publicado</small>
@@ -949,7 +946,6 @@ function suscribir(){
     <input id="wm-input" type="text" maxlength="500" placeholder="Escriba su pregunta…" aria-label="Escriba su pregunta">
     <button type="submit" id="wm-send" aria-label="Enviar">➤</button>
   </form>
-  <div class="wm-chat-sello">🎯 DEMO · Integración por <strong>WhiteMoon Agencia IA</strong></div>
 </div>
 
 <button class="wm-fab" id="wm-fab" aria-label="Abrir asistente IA">
