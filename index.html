@@ -182,10 +182,8 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 .footer-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,162,74,.12);color:var(--dorado);padding:7px 16px;border-radius:20px;font-size:.76rem;margin-top:10px;border:1px solid rgba(212,162,74,.3)}
 
 /* CALLOUT CHATBOT */
-.chatbot-callout{position:fixed;bottom:100px;right:90px;background:#fff;padding:16px 22px;border-radius:12px;box-shadow:0 12px 36px rgba(124,58,237,.25);max-width:280px;z-index:998;border:2px solid var(--morado);animation:wiggle 2.5s infinite;font-size:.85rem;line-height:1.5}
-.chatbot-callout strong{color:var(--morado);display:block;margin-bottom:6px;font-size:.92rem}
-.chatbot-callout .close-btn{position:absolute;top:6px;right:10px;background:none;border:none;color:#999;cursor:pointer;font-size:1.2rem;line-height:1}
-.chatbot-callout::after{content:'';position:absolute;bottom:-10px;right:28px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid var(--morado)}
+.chatbot-callout{position:fixed;bottom:100px;right:22px;z-index:999;background:#000;border:2px solid #fff;color:#fff;font-weight:800;font-size:.82rem;letter-spacing:1.5px;padding:9px 18px;border-radius:24px;box-shadow:0 8px 24px rgba(0,0,0,.55);display:inline-flex;align-items:center;gap:8px;animation:wiggle 2.5s infinite}
+.chatbot-callout .rag-dot{width:8px;height:8px;border-radius:50%;background:var(--rojo-claro);box-shadow:0 0 0 3px rgba(231,76,60,.3);flex-shrink:0}
 @keyframes wiggle{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
 @media(max-width:900px){
@@ -356,12 +354,8 @@ footer hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:20px 0}
 </head>
 <body>
 
-<!-- CALLOUT -->
-<div class="chatbot-callout" id="callout">
-  <button class="close-btn" onclick="document.getElementById('callout').remove()">×</button>
-  <strong>👇 El chatbot está aquí</strong>
-  Pulsa la burbuja flotante abajo-derecha para probar el asistente IA
-</div>
+<!-- ETIQUETA RAG IA -->
+<div class="chatbot-callout" id="callout"><span class="rag-dot"></span>RAG IA</div>
 
 <!-- HEADER -->
 <header>
