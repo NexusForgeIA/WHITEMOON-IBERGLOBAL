@@ -1,0 +1,6 @@
+Vídeo hero de la demo Iberglobal.
+
+hero-comercio.mp4 — "World map in a digital world"
+Fuente: Mixkit (https://mixkit.co/free-stock-video/business/)
+Licencia: Mixkit Stock Video Free License (uso libre, sin atribución obligatoria).
+Póster de respaldo: assets/img/hero-poster.jpg (fotograma del propio vídeo).
